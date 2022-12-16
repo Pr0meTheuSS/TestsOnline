@@ -1,0 +1,134 @@
+body {
+    background-color: #1a1a1d;
+}
+
+p {
+    color: #c3073f;  
+    padding: 10px;  
+}
+
+div {
+    margin: 15px;
+    border: 2px solid #c3073f; 
+}
+
+div.nav-container {
+    background-color: #4e4e50;
+    border-radius: 15px;
+    padding-left: 30px;
+    margin: 25px;
+}
+
+div.nav-div a {
+    text-decoration: none;
+    color: #c3073f;    
+}
+div.nav-div {
+    display: inline-block;
+    background-color: #1a1a1d;
+    border: 2px solid #c3073f;
+    border-radius:  10px;
+    padding: 25px;
+}
+
+.nav-div:hover {
+    background-color: #4e4e50;
+}  
+
+div.tests-grid-element {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+}
+div.tests-grid-element:hover {
+    background-color: #4e4e50;
+}
+
+div.tests-grid {
+    border-radius: 15px;
+    display: grid;
+    column-count: 4; 
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+    height: fit-content;
+}
+
+div.input-name-form-div {
+    position:fixed; 
+    display: flex;
+    top: 0;
+    left: 0;
+
+    visibility: hidden;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(20px);
+}
+
+form.input-name-form {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding: 10px;
+    border-radius: 15px;
+    background-color: #4e4e50;
+    width: fit-content;
+    height: fit-content;
+}
+
+div.test-question-div {
+    position:fixed; 
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    align-content: center;
+    justify-content: center;
+    backdrop-filter: blur(20px);
+}
+
+label {
+    color:#c3073f;
+}
+
+div.test-current-question-div {
+    background-color: black;
+    position: absolute;
+    margin-left: -200px;
+    margin-top: -200px;
+    width: fit-content;
+    left: 50%;
+    top: 50%;
+}
+
+@keyframes slidein {      
+    0% {
+        left: 150%;
+    }
+    100% {
+        left: 50%;
+    }
+}
+
+div.question-div {
+    width: fit-content;
+    height: fit-content;
+}
+
+div.variants-div {
+    width: fit-content;
+    height: fit-content;
+}
+
+@keyframes slideout {
+    from {
+        left:50%;
+    }
+    to {
+        animation: none;
+        left: -50%;
+    }
+}

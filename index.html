@@ -2,43 +2,143 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <script > 
+
+    var userName = "";
+    var answers = [];
+
+    // Функция открытия формы для ввода имени пользователя.
+    function openInputForm() {
+      console.log("openInputForm called.");
+      console.log(document.getElementsByClassName('input-name-form-div')[0].style.visibility = "visible");
+    }
+    
+    // Функция подтверждения ввода имени пользователем.
+    function clickAcceptInputName() {
+      console.log("clickAcceptInputName called.");
+      window.userName = document.getElementById('name').value;
+      console.log(document.getElementsByClassName('input-name-form-div')[0].style.visibility = "hidden");
+      console.log(window.userName);
+      startTesting();
+      return userName;
+    }
+
+    // Функция запуска тестирования.
+    function startTesting() {
+      console.log("start testing.");
+      console.log(document.getElementsByClassName('test-question-div')[0].style.visibility = "visible");
+      console.log(document.getElementsByClassName('test-current-question-div')[0].style.animation = "slidein 2s linear");
+    }
+
+    function clickAnswer() {
+      answer = "";
+      for (i = 0; i < document.getElementsByTagName('input').length; i++) {
+        if (document.getElementsByTagName('input')[i].getAttribute('type') === 'radio') {
+          if (document.getElementsByTagName('input')[i].checked) {
+            answer = document.getElementsByTagName('input')[i].value.toString();
+          }
+        }
+      }
+      console.log(answer);
+      // getNextQuestio();
+      console.log(document.getElementsByClassName('test-current-question-div')[0].style.animation = "slideout 2s linear");
+      //while(document.getElementsByClassName('test-current-question-div')[0].getAnimations()[0].finished)
+        console.log(document.getElementsByClassName('test-current-question-div')[0].getAnimations()[0].finished);
+    }
+
+    </script>
     <title>Tests online</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
+    <nav class="navbar">
+       <!-- div со страницами сайта. -->
+      <div class="container nav-container">
+        
+        <div class="nav-div" id="img-nav">
+          <a href="index.html">Главная</a>            
         </div>
-      </nav>
+        
+        <div  class="nav-div" id="img-nav">
+          <a href="about.html">О нас</a>      
+        </div>
+        
+        <div class="nav-div" id="img-nav">
+          <a href="contacts.html">Контакты</a>      
+        </div>
+      
+      </div>
+    </nav>
+
+    <!-- div с сеткой, содержащей тесты. -->
+    <div class="tests-grid">
+
+      <div class="tests-grid-element" onclick="openInputForm()"> </div>
+      <div class="tests-grid-element"></div>
+      <div class="tests-grid-element"></div>      
+      <div class="tests-grid-element"> </div>
+
+      <div class="tests-grid-element"></div>
+      <div class="tests-grid-element"></div>      
+      <div class="tests-grid-element"> </div>
+      <div class="tests-grid-element"></div>
+
+      <div class="tests-grid-element"></div>      
+      <div class="tests-grid-element"> </div>
+      <div class="tests-grid-element"></div>
+      <div class="tests-grid-element"></div>      
+
+      <div class="tests-grid-element"></div>
+      <div class="tests-grid-element"></div>      
+      <div class="tests-grid-element"> </div>
+      <div class="tests-grid-element"></div>
+
+      <div class="tests-grid-element"></div>      
+      <div class="tests-grid-element"> </div>
+      <div class="tests-grid-element"></div>
+      <div class="tests-grid-element"></div>      
+
+    </div>
+    
+    <!-- div для формы ввода имени пользователя. -->
+    <div class="input-name-form-div">
+      <form class="input-name-form">
+        <label for="name">Имя:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <input type="button" value="Ок" onclick="clickAcceptInputName()">
+      </form>
+    </div>
+
+  <!-- div, содержащий окно с вопросом теста и вариантами овтетов. -->
+  <div class="test-question-div">
+    <div class="test-current-question-div">
+      <div class="question-div"><p> Достаточно длинный вопрооооооооооооооооооооос.</p> </div>
+      <div class="variants-div">
+      
+        <input type="radio" name="question" value="1" id="ans1">
+        <label for="ans1">Вариант 1</label>
+        <br>
+        <input type="radio" name="question" value="2" id="ans2">
+        <label for="ans2">Вариант 2</label>
+        <br>
+      
+        <input type="radio" name="question" value="3" id="ans3">
+        <label for="ans3">Вариант 3</label>
+        <br>
+      
+        <input type="radio" name="question" value="4" id="ans4">
+        <label for="ans4">Вариант 4</label>
+      </div>
+      <div> 
+        <input type="button" value="Ответить" onclick="clickAnswer()">
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-div"> </div>
+  </footer>
+
   </body>
 </html>
+
